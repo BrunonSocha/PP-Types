@@ -14,10 +14,24 @@ string[] names = {
 // After last element should be ".".
 void PrintGroups(string[] t, int perLine)
 {
-
-    // Write required code.
-
+    Console.WriteLine(t.Length);
+    for (int i = 0; i < t.Length; i++)
+    {
+        if (i == (t.Length - 1))
+        {
+            Console.Write($"{t[i]}.");
+        }
+        else
+        {
+            Console.Write($"{t[i]}, ");
+        }
+        if ((i + 1) % perLine == 0)
+        {
+            Console.WriteLine();
+        }
+    }
 }
+
 
 
 // Print all array elements in *perLine* columns.
@@ -27,9 +41,25 @@ void PrintGroups(string[] t, int perLine)
 
 void PrintColumns(string[] t, int perLine, int width)
 {
+    for (int i = 0; i < t.Length; i++)
+    {
+        if (i % perLine == 0)
+        {
+            Console.WriteLine();
+        }
+        if (t[i].Length >= width)
+        {
+            Console.Write($"{t[i].Substring(0, width)}|");
+        }
+        else
+        {
+            int iloscspacji = width - t[i].Length;
+            string spacje = new string(' ', iloscspacji);
+            string poprawneslowo = $"{t[i]}{spacje}|";
+            Console.Write($"{poprawneslowo}");
+        }
 
-    // Write required code.
-
+    }
 }
 
 
